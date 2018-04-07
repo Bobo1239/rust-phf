@@ -288,7 +288,7 @@ fn parse_key(cx: &mut ExtCtxt, e: &Expr) -> Option<Key> {
         #[cfg(feature = "unicase_support")]
         ExprKind::Call(ref f, ref args) => {
             if let ExprKind::Path(_, ref path) = f.node {
-                if &*path.segments.last().unwrap().identifier.name.as_str() == "UniCase" {
+                if &*path.segments.last().unwrap().ident.name.as_str() == "UniCase" {
                     if args.len() == 1 {
                         if let ExprKind::Lit(ref lit) = args.first().unwrap().node {
                             if let ast::LitKind::Str(ref s, _) = lit.node {
